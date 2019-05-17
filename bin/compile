@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+BUILD_DIR="$1"
+SOURCE_DIR="$(dirname $0)/../compiled"
+TARGET_DIR="$BUILD_DIR/vendor/"
+
+echo "-----> Copying files to $TARGET_DIR"
+
+mkdir -p "$TARGET_DIR"
+cp -r "$SOURCE_DIR/pdf2htmlEX" "$TARGET_DIR"
+chmod +x "$TARGET_DIR/pdf2htmlEX/pdf2htmlEX"
